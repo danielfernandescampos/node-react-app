@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
+import api from './services/api';
 import './App.css'
+
+import background from './assets/background.jpeg'
 
 function App() {
     // useState retorna um array com duas posições
@@ -11,6 +14,12 @@ function App() {
         "Front-end Web",
         "Angular avançado",
     ]);
+
+    useEffect(() => {
+        api.get('projects').then((response) => {
+            console.log(response);
+        })
+    }, [])
 
     function handleAddProject() {
         setProjects([...projects, `new Project ${Date.now()}`])
@@ -25,6 +34,7 @@ function App() {
                 { projects.map(project => <li key={project}>{ project }</li>) }
             </ul>
             <button onClick={handleAddProject}>New Project</button>
+            <img src={background}/> 
         </>
     )
 }

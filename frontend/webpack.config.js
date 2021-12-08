@@ -26,6 +26,12 @@ module.exports = {
                     { loader: 'css-loader' },
                 ],
             },
+            {
+                test: /.*\.(gif|jpe?g|png)$/i,
+                use: {
+                    loader: 'file-loader',
+                },
+            },
         ]
     },
 }
