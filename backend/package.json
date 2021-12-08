@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "back-serve": "nodemon"
+    "dev": "nodemon"
   },
   "dependencies": {
     "express": "^4.17.1",
