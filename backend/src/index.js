@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 const projects = [];
+const port = 3333;
 
 function logRequests(req, res, next) {
     const { method, url } = req;
@@ -58,6 +59,6 @@ app.delete('/projects/:id', (req, res) => {
     return res.status(204).json({message: `Projeto ${id} deletado com sucesso`})
 });
 
-app.listen(3333, () => {
-    console.log("🚀 backend started..."
+app.listen(port, () => {
+    console.log(`🚀 backend running at port ${port}...`
 )});
